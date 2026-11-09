@@ -1,0 +1,15 @@
+{
+  "item.vrcamera.camera": "Физическая VR-камера",
+  "item.vrcamera.camera_on": "Физическая VR-камера (REC)",
+  "key.category.vrcamera.camera": "VR Physical Camera",
+  "key.vrcamera.grab": "Взять / оставить камеру в воздухе",
+  "key.vrcamera.throw": "Бросить камеру",
+  "key.vrcamera.power": "Включить / выключить запись",
+  "key.vrcamera.view": "Смотреть через камеру / свободная камера Flashback",
+  "key.vrcamera.monitor": "Открыть экран видоискателя камеры",
+  "key.vrcamera.pickup": "Вернуть камеру в инвентарь",
+  "key.vrcamera.left": "Повернуть камеру влево",
+  "key.vrcamera.right": "Повернуть камеру вправо",
+  "key.vrcamera.up": "Поднять объектив",
+  "key.vrcamera.down": "Опустить объектив"
+}

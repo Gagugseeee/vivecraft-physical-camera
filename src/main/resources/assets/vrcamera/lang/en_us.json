@@ -1,0 +1,15 @@
+{
+  "item.vrcamera.camera": "Physical VR Camera",
+  "item.vrcamera.camera_on": "Physical VR Camera (REC)",
+  "key.category.vrcamera.camera": "VR Physical Camera",
+  "key.vrcamera.grab": "Grab / freeze camera",
+  "key.vrcamera.throw": "Throw camera",
+  "key.vrcamera.power": "Toggle camera recording",
+  "key.vrcamera.view": "Camera POV / Flashback freecam",
+  "key.vrcamera.monitor": "Open live camera viewfinder",
+  "key.vrcamera.pickup": "Return camera to inventory",
+  "key.vrcamera.left": "Yaw camera left",
+  "key.vrcamera.right": "Yaw camera right",
+  "key.vrcamera.up": "Pitch camera up",
+  "key.vrcamera.down": "Pitch camera down"
+}

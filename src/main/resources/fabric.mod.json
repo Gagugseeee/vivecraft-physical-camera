@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "vrcamera",
+  "version": "${version}",
+  "name": "VR Physical Camera",
+  "description": "A VR camera with physics, controller controls, a live viewfinder and Flashback replay POV. Minecraft 26.3.",
+  "authors": ["VR Camera Project"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["dev.vrcamera.PhysicalCameraMod"],
+    "client": ["dev.vrcamera.client.PhysicalCameraClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "=26.3",
+    "java": ">=25",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "vivecraft": "*",
+    "flashback": "*"
+  }
+}

@@ -1,3 +1,4 @@
+
 package dev.vrcamera;
 
 import dev.vrcamera.net.CameraActionPacket;
@@ -25,24 +26,47 @@ public final class PhysicalCameraMod implements ModInitializer {
         Identifier id = id(name);
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, id);
         Item.Properties props = new Item.Properties().setId(key).stacksTo(1);
-        Item item = deployable ? new DeployCameraItem(props) : new Item(props);
+        Item item = deployable
+                ? new DeployCameraItem(props)
+                : new Item(props);
+
         return Registry.register(BuiltInRegistries.ITEM, key, item);
     }
 
-    public static final Item CAMERA = registerCamera("camera", true);
-    public static final Item CAMERA_ON = registerCamera("camera_on", false);
+    public static final Item CAMERA =
+            registerCamera("camera", true);
+
+    public static final Item CAMERA_ON =
+            registerCamera("camera_on", false);
 
     @Override
     public void onInitialize() {
-        PayloadTypeRegistry.serverboundPlay().register(HandPosePacket.TYPE, HandPosePacket.CODEC);
-        PayloadTypeRegistry.serverboundPlay().register(CameraActionPacket.TYPE, CameraActionPacket.CODEC);
-        PayloadTypeRegistry.clientboundPlay().register(HeldStatePacket.TYPE, HeldStatePacket.CODEC);
+        PayloadTypeRegistry.serverboundPlay().register(
+                HandPosePacket.TYPE, HandPosePacket.CODEC
+        );
 
-        ServerPlayNetworking.registerGlobalReceiver(HandPosePacket.TYPE,
-                (packet, context) -> context.server().execute(() -> CameraSystem.onPose(context.player(), packet)));
-        ServerPlayNetworking.registerGlobalReceiver(CameraActionPacket.TYPE,
-                (packet, context) -> context.server().execute(() -> CameraSystem.onAction(context.player(), packet)));
+        PayloadTypeRegistry.serverboundPlay().register(
+                CameraActionPacket.TYPE, CameraActionPacket.CODEC
+        );
 
-        ServerTickEvents.END_WORLD_TICK.register(CameraSystem::tick);
+        PayloadTypeRegistry.clientboundPlay().register(
+                HeldStatePacket.TYPE, HeldStatePacket.CODEC
+        );
+
+        ServerPlayNetworking.registerGlobalReceiver(
+                HandPosePacket.TYPE,
+                (packet, context) -> context.server().execute(
+                        () -> CameraSystem.onPose(context.player(), packet)
+                )
+        );
+
+        ServerPlayNetworking.registerGlobalReceiver(
+                CameraActionPacket.TYPE,
+                (packet, context) -> context.server().execute(
+                        () -> CameraSystem.onAction(context.player(), packet)
+                )
+        );
+
+        ServerTickEvents.END_LEVEL_TICK.register(CameraSystem::tick);
     }
 }

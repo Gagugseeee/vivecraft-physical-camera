@@ -16,10 +16,12 @@ repositories {
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-    // Only the client-side bridge links to Vivecraft's official API.
-    modCompileOnly "maven.modrinth:vivecraft:${project.vivecraft_version}"
+
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+    compileOnly "maven.modrinth:wGoQDPN5:ralsIVj7"
 }
 
 tasks.processResources {
